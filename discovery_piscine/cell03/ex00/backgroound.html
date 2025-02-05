@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disco. (now dance)</title>
+    <link rel="stylesheet" href="backgroound.css" />
+</head>
+<body>
+    <button type="button" onclick="OhChange()">DANZA (Ellipsis warning I guess)</button>
+    <p id="rgbV"></p>
+    <script>
+        x=1;
+        y=1;
+        z=1;
+        function OhChange() {
+            x=Math.floor(Math.random() * 255);
+            y=Math.floor(Math.random() * 255);
+            z=Math.floor(Math.random() * 255);
+            Color="rgb("+x+","+y+","+z+")"
+            document.body.style.backgroundColor = Color;
+            revx=255-x;
+            revy=255-y;
+            revz=255-z;
+            document.getElementById("rgbV").style.color  = "rgb("+revx+","+revy+","+revz+")"
+            document.getElementById("rgbV").innerHTML = "rbg value in case you want to know: (" + x + ", " + y + ", " + z + ")";
+        }
+        
+    </script>
+</body>
+</html>
