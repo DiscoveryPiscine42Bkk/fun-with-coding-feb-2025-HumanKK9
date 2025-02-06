@@ -7,7 +7,7 @@
     height: 100%;
     display:flex; 
     align-items: center; 
-    padding-left: 50%;
+    justify-content: center;
   }
   .parallax {
     background-size: cover;
