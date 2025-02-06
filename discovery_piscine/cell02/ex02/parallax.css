@@ -1,0 +1,26 @@
+
+* {
+    margin: 0;
+    text-align:center;
+  }
+  div {
+    height: 100%;
+    display:flex; 
+    align-items: center; 
+    padding-left: 50%;
+  }
+  .parallax {
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  .hey {
+    color:white;
+    background-color: black;
+    font-family:comic sans MS;
+  }
+  .comic {
+    color: cyan; 
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size:xx-large;
+    transform: skewY(20deg);
+  }
