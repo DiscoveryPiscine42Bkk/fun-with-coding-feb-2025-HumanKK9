@@ -1,12 +1,13 @@
 i=0
 window.onload = function() {
+    alert(document.cookie)
     i=0;
     if(document.cookie!="undefined")
     {
     let decodedCookie = decodeURIComponent(document.cookie);;
     let ca = decodedCookie.split(';');;
     m=0;
-    for(i=1; i <ca.length; i++) {
+    for(i=0; i <ca.length; i++) {
         let c = ca[i];;
         while (c.charAt(0) == ' ') {
         c = c.substring(1);;
@@ -15,6 +16,7 @@ window.onload = function() {
         idname=c.split('=')[0];
         numbe=Number(idname);     
         word=c.split('=')[1]
+        alert(c.split('=')[0])
         makealittleguy(c.split('=')[1],idname);;//need to find a way to get number of characters of the id inside the string in cookie
         if(numbe>m){
             m=numbe;
@@ -34,7 +36,6 @@ function makealittleguy(stuffs,theirnumber) {
     thing.innerHTML = stuffs;
     thing.id=theirnumber;
     thing.style.border="1px black";
-    thing.onclick=function () {DES_TROY(this.id);};
     thing.style.margin="2px";
     thing.style.padding="5px";
     thing.style.position="absolute";
@@ -50,9 +51,8 @@ function makealittleguy(stuffs,theirnumber) {
     document.cookie = theirnumber.toString() + "=" + stuffs + ";path=/";
 }
 
-
-
-function DES_TROY(justalilguy) {
+$("div").click(function(){
+    justalilguy=$(this).attr('id');
     if (i!=justalilguy){
         confirmation=confirm("Destroy this creature?");
         if (confirmation==true ){
@@ -73,4 +73,4 @@ function DES_TROY(justalilguy) {
             alert("The creature is relieved for being able to live for just one more second.")
         }
     }     
-}
+})
