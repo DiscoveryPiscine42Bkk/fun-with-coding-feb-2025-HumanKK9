@@ -3,10 +3,11 @@ window.onload = function() {
     i=0;
     if(document.cookie!="undefined")
     {
+        
     let decodedCookie = decodeURIComponent(document.cookie);;
     let ca = decodedCookie.split(';');;
     m=0;
-    for(i=1; i <ca.length; i++) {
+    for(i=0; i <ca.length; i++) {
         let c = ca[i];;
         while (c.charAt(0) == ' ') {
         c = c.substring(1);;
@@ -15,7 +16,10 @@ window.onload = function() {
         idname=c.split('=')[0];
         numbe=Number(idname);     
         word=c.split('=')[1]
-        makealittleguy(c.split('=')[1],idname);;//need to find a way to get number of characters of the id inside the string in cookie
+        if (c.split('=')[0]!="undefined"){
+            makealittleguy(c.split('=')[1],idname);
+        }
+        
         if(numbe>m){
             m=numbe;
         }
@@ -47,7 +51,7 @@ function makealittleguy(stuffs,theirnumber) {
         }
         
     }
-    document.cookie = theirnumber.toString() + "=" + stuffs + ";path=/";
+    document.cookie = theirnumber.toString() + "=" + stuffs+"=;expires=Thu,01 Jan 2300 00:00:00 UTC;path=/;SameSite=None; Secure;";
 }
 
 function DES_TROY(justalilguy) {
@@ -65,7 +69,7 @@ function DES_TROY(justalilguy) {
                 }
                 
             }
-            document.cookie = justalilguy+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";//EXPIRE, CREATURE
+            document.cookie = justalilguy+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;SameSite=None; Secure;";//EXPIRE, CREATURE
         }
         else {
             alert("The creature is relieved for being able to live for just one more second.")
