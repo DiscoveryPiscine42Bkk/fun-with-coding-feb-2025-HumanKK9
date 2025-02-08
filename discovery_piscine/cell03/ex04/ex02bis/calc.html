@@ -1,0 +1,165 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calcium</title>
+    <style>
+        * {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-align: center;
+            font-size: large;
+            align-items: center; 
+        }
+        body {
+            display: flex; 
+            justify-content: center;
+            height:100%; 
+            margin:0;
+        }
+        div {
+            display:grid;
+            align-items: center
+        }
+    .dropdown-content {
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        display: none;
+        width: 40%;
+    }
+    .dropdown-content a {
+        display: block;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        width: 10px;
+        border-radius: 50%; 
+    }
+    .dropdown:hover .dropdown-content {
+        display: flex;
+    }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <div><input id="left" name="lefft" placeholder="Type here....."><br></div>
+            </td>
+            <td>
+                <div><input id="right" name="righht" placeholder="Yesssss......"><br></div>
+            </td>
+            <td>
+                <div><input id="sub" value="Try me!" onclick="calcu()"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div><div class="dropdown">
+                    <button class="dropbtn">Ope</button>
+                    <div class="dropdown-content">
+                      <a id="plus" onclick="opchosing(1)">+</a>
+                      <a id="minus" onclick="opchosing(2)">-</a>
+                      <a id="multi" onclick="opchosing(3)">*</a>
+                      <a id="slash" onclick="opchosing(4)">/</a>
+                      <a id="mod" onclick="opchosing(5)">%</a>
+                    </div>
+                  </div></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="answer"></div>
+            </td>
+        </tr>
+    </table>
+    
+    <script>
+        op=0;
+        $("#sub").click(function(){
+            x=parseInt(document.getElementById("left").value);
+            y=parseInt(document.getElementById("right").value);
+            if (x>=0 && y>=0) {
+                if (y==0 && (op==5 || op==4)) {
+                    answar = "It's over 9000!";
+                }
+                else if (op==1) {
+                    answar=x+y;
+                }
+                else if (op==2) {
+                    answar=x-y;
+                }
+                else if (op==3) {
+                    answar=x*y;
+                }
+                else if (op==4) {
+                    answar=x/y;
+                }
+                else if (op==5) {
+                    answar=x%y;
+                }
+                else if (op==0) {
+                    answar="Choose your operator there ^";
+                }
+            }
+            else if (true==true)  {
+                answar = "Error :(";
+            }
+            msg(answar);
+        })
+        
+        function msg(answar) {
+            $("answer").html(answar)
+            alert(answar); 
+            console.log(answar)
+        }
+        $("#plus").click(function(){
+            op=1;
+            $("#plus").css("background-color","green")
+            $("#minus").css("background","none")
+            $("#multi").css("background","none")
+            $("#slash").css("background","none")
+            $("#mod").css("background","none")
+        })
+        $("#minus").click(function(){
+            op=2;
+            $("#plus").css("background","none")
+            $("#minus").css("background-color","green")
+            $("#multi").css("background","none")
+            $("#slash").css("background","none")
+            $("#mod").css("background","none")
+        })
+        $("#multi").click(function(){
+            op=3;
+            $("#plus").css("background","none")
+            $("#minus").css("background","none")
+            $("#multi").css("background-color","green")
+            $("#slash").css("background","none")
+            $("#mod").css("background","none")
+        })
+        $("#slash").click(function(){
+            op=4;
+            $("#plus").css("background","none")
+            $("#minus").css("background","none")
+            $("#multi").css("background","none")
+            $("#slash").css("background-color","green")
+            $("#mod").css("background","none")
+        })
+        $("#mod").click(function(){
+            op=5;
+            $("#plus").css("background","none")
+            $("#minus").css("background","none")
+            $("#multi").css("background","none")
+            $("#slash").css("background","none")
+            $("#mod").css("background-color","green")
+        })
+        jQuery.fx.interval = 30000;
+        
+        setInterval(() => {
+            alert("Please, use me...");
+        }, 30000);
+    </script>
+</body>
+</html>

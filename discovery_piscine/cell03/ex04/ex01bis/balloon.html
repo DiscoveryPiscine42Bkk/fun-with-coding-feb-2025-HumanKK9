@@ -1,0 +1,117 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D-bloon</title>
+    <style>
+        * {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-align: center;
+            font-size: large;
+            align-items: center; 
+        }
+        body {
+            display: flex; 
+            justify-content: center;
+            height:100%; 
+            margin:0;
+        }
+        div {
+            border-radius: 50%; 
+            height:200px;
+            width:200px; 
+            background-color: red; 
+            display:grid;
+            align-items: center
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="bloon" onclick="Inflation()" onmouseleave="Deflation()">D-bloon</div>
+    
+    <script>
+        truesize=200;
+        $("div").click(function(){
+            truesize=truesize+10;
+            if (truesize>420) {
+                truesize = 200;
+            }
+            if (truesize<236.66) {
+                x=255;                          
+                y=(truesize-200)*6.98;  
+                z=0;
+            }
+            else if (truesize>236.66 && truesize<273.33) {
+                x=255-(truesize-236.66)*6.98;   
+                y=255;                  
+                z=0;
+            }
+            else if (truesize>273.33 && truesize<310) {
+                x=0; 
+                y=255; 
+                z=(truesize-273.33)*6.98;
+            }
+            else if (truesize>310 && truesize<346.66) {
+                x=0; 
+                y=255-(truesize-310)*6.98; 
+                z=255;
+            }
+            else if (truesize>346.66 && truesize<383.33) {
+                x=(truesize-346.66)*6.98; 
+                y=0; 
+                z=255;
+            }
+            else if (truesize>383.33) {
+                x=255;
+                y=0; 
+                z=255-(truesize-383.33)*6.98;
+            }
+            $("div").css("height",truesize)
+            $("div").css("width",truesize)
+            $("div").css("background-color","rgb("+x+","+y+","+z+")")
+        })
+        $("div").mouseleave(function(){
+            truesize=truesize-5;
+            if (truesize>420) {
+                truesize = 200;
+            }
+            if (truesize<236.66) {
+                x=255;                          
+                y=(truesize-200)*6.98;  
+                z=0;
+            }
+            else if (truesize>236.66 && truesize<273.33) {
+                x=255-(truesize-236.66)*6.98;   
+                y=255;                  
+                z=0;
+            }
+            else if (truesize>273.33 && truesize<310) {
+                x=0; 
+                y=255; 
+                z=(truesize-273.33)*6.98;
+            }
+            else if (truesize>310 && truesize<346.66) {
+                x=0; 
+                y=255-(truesize-310)*6.98; 
+                z=255;
+            }
+            else if (truesize>346.66 && truesize<383.33) {
+                x=(truesize-346.66)*6.98; 
+                y=0; 
+                z=255;
+            }
+            else if (truesize>383.33) {
+                x=255;
+                y=0; 
+                z=255-(truesize-383.33)*6.98;
+            }
+            $("div").css("height",truesize)
+            $("div").css("width",truesize)
+            $("div").css("background-color","rgb("+x+","+y+","+z+")")
+        })
+        
+        
+    </script>
+</body>
+</html>
